@@ -1,0 +1,83 @@
+<!-- connect_contractor.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect with a Contractor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Connect with a Contractor</h1>
+        <label for="description">Description of work:</label>
+        <textarea id="description" name="description" rows="4" cols="50"></textarea><br>
+        <label for="site_location">Site Location:</label>
+        <input type="text" id="site_location" name="site_location"><br>
+        <label for="work_area">Work Area:</label>
+        <input type="text" id="work_area" name="work_area"><br>
+        <button class="btn" onclick="connectContractor()">Connect with Contractor</button>
+    </div>
+
+    <script>
+        function connectContractor() {
+            var description = document.getElementById('description').value;
+            var siteLocation = document.getElementById('site_location').value;
+            var workArea = document.getElementById('work_area').value;
+            // You can add AJAX here to send the data to the server
+            // For simplicity, let's assume it's a form submission
+            window.location.href = '/connect_contractor?description=' + description + '&site_location=' + siteLocation + '&work_area=' + workArea;
+        }
+    </script>
+</body>
+</html>

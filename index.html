@@ -1,0 +1,241 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contractor Services</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* background-image: url(../bootstrap405/asset/image/backdround2.jpg);
+            background-size: 100%; */
+            background-position: center;
+        }
+
+        .navbar {
+            background-color: #000; /* Dark navbar background */
+        }
+        #nav-item .nav-link{
+            color: #ffff; 
+        }
+
+        #nav-item .nav-link:hover{
+            transform: scale(1.2); 
+        }
+
+        .jumbotron {
+            background-image: url(../static/image/background3.jpg);
+            background-size: 50%;
+            background-position: center;
+            padding: 50px 20px;
+            text-align: center;      
+            border: 10px solid #0a0909; /* Add border */
+            border-radius: 15px; /* Optional: Add border radius for rounded corners */      
+        }
+        
+        .jumbotron h1 {
+            /* color: #; /* Dark title text color */
+            font-size: 80px; 
+            margin-top: 30px;
+            margin-bottom: -15px;
+            color: #e9dddd;
+        }
+
+        .jumbotron P {
+            color: #e9dddd; /* Dark title text color */
+            font-size: 25px;
+        }
+
+        .card {
+            margin: 10px;
+        }
+        .card-img-top {
+            height: 200px; /* Adjust image height as needed */
+            object-fit: cover;
+        }
+        .footer{
+            background-color: #343a40;
+            color: #fff;
+            padding: 30px 0;
+        }
+        .footer-links li {
+            padding: 5px 0;
+        }
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        .card-img-top {
+             height: 300px; /* Adjusted height */
+             object-fit: cover;
+        }
+        .profile{
+            line-height: 20px;
+            position: absolute;
+            top: 15px; 
+            left: 80px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        {% if user.is_authenticated %}
+            <span style="font-size: small; color: #fff; margin-left: -100px;" >Hello,</span>
+            <h1 style="color: #fff; font-size: 30px; margin-bottom: 5px;">{{ user.name }}</h1>
+        {% endif %}
+        <a class="navbar-brand" href="#" style="margin-left: 52px;">Contractor Services</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li id="nav-item">
+                    <a class="nav-link" href="#electrical">Electrical</a>
+                </li>
+                <li id="nav-item">
+                    <a class="nav-link" href="#carpentry">Carpentry</a>
+                </li>
+                <li id="nav-item">
+                    <a class="nav-link" href="#pop">POP</a>
+                </li>
+                <li id="nav-item">
+                    <a class="nav-link" href="#hvac">HVAC</a>
+                </li>
+                <li id="nav-item">
+                    <a class="nav-link" href="#civil">Civil</a>
+                </li>
+                <li id="nav-item">
+                    <a class="nav-link" href="#painter">Painting</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="jumbotron">
+    <h1>Welcome to Contractor Services</h1>
+    <p>We provide professional contracting services in various fields to meet your needs.</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="../static/image/image11.jpg" class="card-img-top" alt="Electrical Services">
+                <div class="card-body">
+                    <h5 class="card-title">Electrical Contractor</h5>
+                    <p class="card-text">Professional electrical services for residential and commercial buildings.</p>
+                    <a href="/contractor_detail/?field=Electrical" class="btn btn-primary">Visit Here</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="../static/image/images12.jpg" class="card-img-top" alt="Carpentry Services">
+                <div class="card-body">
+                    <h5 class="card-title">Carpentry Contractor</h5>
+                    <p class="card-text">Expert carpentry services including furniture, doors, and more.</p>
+                    <a href="/contractor_detail/?field=Carpentry" class="btn btn-primary">Visit Here</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="../static/image/image13.jpg" class="card-img-top" alt="POP Services">
+                <div class="card-body">
+                    <h5 class="card-title">POP Contractor</h5>
+                    <p class="card-text">Professional POP services for interior decoration and design.</p>
+                    <a href="/contractor_detail/?field=POP" class="btn btn-primary">Visit Here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="../static/image/image14.jpg" class="card-img-top" alt="HVAC Services">
+                <div class="card-body">
+                    <h5 class="card-title">HVAC Contractor</h5>
+                    <p class="card-text">Heating, ventilation, and air conditioning services for homes and offices.</p>
+                    <a href="/contractor_detail/?field=HVAC" class="btn btn-primary">Visit Here</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="../static/image/images.15.jpg" class="card-img-top" alt="HVAC Services">
+                <div class="card-body">
+                    <h5 class="card-title">Civil Contractor</h5>
+                    <p class="card-text">Professional civil engineering services for construction projects.</p>
+                    <a href="/contractor_detail/?field=Civil" class="btn btn-primary">Visit Here</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="../static/image/image16.jpg" class="card-img-top" alt="Plumbing Services">
+                <div class="card-body">
+                    <h5 class="card-title">Painting Contractor</h5>
+                    <p class="card-text">Expert painting services for residential and commercial properties.</p>
+                    <a href="/contractor_detail/?field=Painting" class="btn btn-primary">Visit Here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <!-- Other card elements -->
+    </div>
+    <!-- footer section start -->
+    <footer class="footer">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>About Us</h5>
+                    <p>We are a leading contractor service dedicated to delivering top-quality construction and maintenance solutions. With years of experience and a skilled team of professionals, we specialize in providing comprehensive services for residential, commercial, and industrial projects. From electrical and plumbing to carpentry and HVAC, we handle it all with precision and care.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Customer Service</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Terms and Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Contact Us</h5>
+                    <p>Email: allinonecontractor@gmail.com.com</p>
+                    <p>Phone: 9167715411</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Follow Us</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-center">&copy; 2024 Contractor Services. All rights reserved.</p>
+                    </div>
+                </div>
+                <!-- footer section end -->
+    </footer>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contractor Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .contractor-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .contractor-item {
+            width: calc(33.33% - 20px); /* Three contractors per row */
+            margin-bottom: 40px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .contractor-details {
+            padding: 20px;
+            font-size: 16px;
+            color: #333333;
+            height: 180px; /* Adjust the height as needed */
+            overflow: hidden;
+        }
+        .connect-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+            text-decoration: none;
+        }
+        .connect-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contractor Detail - {{ field }}</h1>
+        <ul class="contractor-list">
+            {% for contractor in contractors %}
+            <li class="contractor-item">
+                <div class="contractor-details">
+                    <strong>Company Name:</strong> {{ contractor.company_name }}<br>
+                    <strong>Contractor Name:</strong> {{ contractor.contractor_name }}<br>
+                    <strong>GSTIN:</strong> {{ contractor.gstin }}<br>
+                    <strong>Location:</strong> {{ contractor.location }}<br>
+                    <strong>City:</strong> {{ contractor.city }}<br>
+                    <strong>Projects Completed:</strong> {{ contractor.projects_completed }}<br>
+                    <strong>Experience Years:</strong> {{ contractor.experience_years }}<br>
+                </div>
+                <a href="/connect_to_contractor/?contractor_id={{contractor.id}}" class="connect-button">Connect</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

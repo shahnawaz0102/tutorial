@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Add Work Detail For {{field}}</h2>
+        {% if errmsg %}
+            <div class="alert alert-danger">
+                {{errmsg}}
+            </div>
+         {% endif %}
+        <form  method="POST" action="/work_detail/?field={{field}}"style="align-item:center">
+            {% csrf_token %}
+            <div class="form-group row">
+                <label for="companyName" class="col-sm-4 col-form-label">Company Name:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="companyName" name="companyName" placeholder="Enter Company Name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="contractorName" class="col-sm-4 col-form-label">Contractor Name:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="contractorName"  name="contractorName"  placeholder="Enter Contractor Name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="gstin" class="col-sm-4 col-form-label">GSTIN Number:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="gstin" name="gstin" name="location" placeholder="Enter GSTIN Number">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="location" class="col-sm-4 col-form-label">Location:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="location" name="location"  placeholder="Enter Location">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="city" class="col-sm-4 col-form-label">City:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="city"  name="city" placeholder="Enter City">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="projectsCompleted" class="col-sm-4 col-form-label">Projects Completed:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="projectsCompleted" name="projectsCompleted" placeholder="Enter Projects Completed">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="experienceYears" class="col-sm-4 col-form-label">Experience Years:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="experienceYears" name="experience"  placeholder="Enter Experience Years">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12 text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+            {% if success %}
+            <div class="alert alert-success">
+                  {{success}}
+            </div>
+            {% endif %}
+        </form>
+       
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

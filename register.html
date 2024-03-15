@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href=" https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css " rel="stylesheet">
+    <style>
+       body {
+    background-image: url(../static/image/image4.jpg);
+    background-size: 1540px;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    height: 100vh; /* Set height to viewport height */
+    /* overflow: hidden; Hide overflow to prevent scrolling */
+}
+
+
+        .signup-container {
+            margin-top: 50px;
+            max-width: 500px;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            
+        }
+        .signup-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            margin-bottom:10px;
+        }
+        .btn-signup {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        .btn-signup:hover {
+            background-color: #0056b3;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .login-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .form-check{
+            text-align: left;
+            margin-bottom: 6px;
+        }
+        #contractor, #customer{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="signup-container">
+                    <h2>Sign Up</h2>
+                    {% if errmsg %}
+                    <div class="alert alert-danger">
+                        {{errmsg}}
+                    </div>
+                {% endif %}   
+                   
+                    <form method="POST" action="/register/"style="align-item:center" >
+                        {% csrf_token %}
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Register As:</label>
+                            <div class="col-sm-8">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="register_as" id="customer" value="customer" >
+                                    <label class="form-check-label" for="customerRadio">
+                                        Customer
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="register_as" id="contractor" value="contractor">
+                                    <label class="form-check-label" for="contractorRadio">
+                                        Contractor
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="InputName" class="form-label">Enter Name</label>
+                            <input type="text" name="uname" class="form-control" id="InputName" placeholder="Name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="InputEmail" class="form-label">Enter Email</label>
+                            <input type="email" name="umail" class="form-control" id="InputEmail" placeholder="Email Address">
+                        </div>
+                        <div class="form-group">
+                            <label for="InputPassword" class="form-label">Enter Password</label>
+                            <input type="password" name="upass" class="form-control" id="InputPassword" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="ConfirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" name="ucpass" class="form-control" id="ConfirmPassword" placeholder="Confirm Password">  
+                        </div>
+                        
+                        <div class="form-check">
+                            <label>  
+                                <input type="checkbox" name=""> I accept the <a href="#">Terms of Use</a>& <a href="#">Privacy Policy</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-signup">Sign Up</button>
+                    </form>
+                    <div class="login-link">
+                        Already have an account? <a href="/login">Login</a>
+                    </div>
+    
+                    {% if success %}
+                    <div class="alert alert-success">
+                        {{success}}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    

@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contractor Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        
+        body {
+            background-color: #f8f9fa;
+            background-image: url(../static/image/background.jpg);
+            background-repeat: no-repeat;
+            background-size: cover; /* Ensure the background image covers the entire body */
+            color: #ffffff;
+            }
+
+
+        .container{
+            max-width: 800px;
+            margin-top: 30px;
+        }
+
+        .contractor-card {
+            margin-bottom: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .contractor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-title {
+            color: #007bff;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .card-text{
+            color: blue;
+        }
+
+        .profile{
+            margin-top: -30px;
+            line-height: 20px;
+            position: absolute;
+            top: 35px; 
+            left: 80px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        {% if user.is_authenticated %}
+        <div class="profile">
+            <span style="font-size: 20px;">Hello,</span>
+            <h1>{{ user.name }}</h1>
+         </div>
+        {% endif %}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Request</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Main Content -->
+<div class="container">
+    <!-- Electrical Contractor -->
+    <div class="card contractor-card">
+        <div class="card-body">
+            <h5 class="card-title">Electrical Contractor</h5>
+            <p class="card-text">Specializing in wiring solutions for residential and commercial properties. Our experienced team ensures safe and efficient electrical installations.</p>
+            <a href="{% url 'work_detail' %}?field=Electrical" class="btn btn-primary">Add Your Work Detail</a>
+        </div>
+    </div>
+
+    <!-- Carpentry Contractor -->
+    <div class="card contractor-card">
+        <div class="card-body">
+            <h5 class="card-title">Carpentry Contractor</h5>
+            <p class="card-text">Crafting custom furniture and woodworking solutions to elevate your space. From intricate designs to sturdy structures, we bring your visions to life.</p>
+            <a href="{% url 'work_detail' %}?field=Carpentry" class="btn btn-primary">Add Your Work Detail</a>
+        </div>
+    </div>
+
+     <!-- POP Contractor -->
+     <div class="card contractor-card">
+        <div class="card-body">
+            <h5 class="card-title">POP Contractor</h5>
+            <p class="card-text">Transforming interiors with precision and creativity. Our POP services add elegance and style to your residential or commercial spaces</p>
+            <a href="{% url 'work_detail' %}?field=POP" class="btn btn-primary">Add Your Work Detail</a>
+        </div>
+    </div>
+
+    <!-- HVAC Contractor -->
+    <div class="card contractor-card">
+        <div class="card-body">
+            <h5 class="card-title">HVAC Contractor</h5>
+            <p class="card-text">Providing top-notch heating, ventilation, and air conditioning services. Keep your home or office comfortable year-round with our expert HVAC solutions</p>
+            <a href="{% url 'work_detail' %}?field=HVAC" class="btn btn-primary">Add Your Work Detail</a>
+        </div>
+    </div>
+
+    <!-- Civil Contractor -->
+    <div class="card contractor-card">
+        <div class="card-body">
+            <h5 class="card-title">Civil Contractor</h5>
+            <p class="card-text">Building the foundation for your dreams. Our civil engineering services ensure the structural integrity and durability of your construction projects</p>
+            <a href="{% url 'work_detail' %}?field=Civil" class="btn btn-primary">Add Your Work Detail</a>
+        </div>
+    </div>
+
+     <!-- Painting Contractor -->
+    <div class="card contractor-card">
+        <div class="card-body">
+            <h5 class="card-title">Painting Contractor</h5>
+            <p class="card-text">Bringing color and vibrancy to your walls. Our professional painting services enhance the aesthetic appeal of your properties with flawless finishes</p>
+            <a href="{% url 'work_detail' %}?field=Painting" class="btn btn-primary">Add Your Work Detail</a>
+        </div>
+    </div>
+
+
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
