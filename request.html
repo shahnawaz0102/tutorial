@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Username Acceptance Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        input[type="text"],
+        textarea {
+            width: calc(100% - 20px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="usernameForm">
+        <table>
+            <tr>
+                <th>Username:</th>
+                <td><input type="text" id="username" name="username" required></td>
+            </tr>
+            <tr>
+                <th>Description of work:</th>
+                <td><textarea id="description" name="description" rows="4" cols="50"></textarea></td>
+            </tr>
+            <tr>
+                <th>Site Location:</th>
+                <td><input type="text" id="site_location" name="site_location"></td>
+            </tr>
+            <tr>
+                <th>Work Area:</th>
+                <td><input type="text" id="work_area" name="work_area"></td>
+            </tr>
+        </table>
+        <br>
+        <button type="button" id="acceptBtn">Accept</button>
+        <button type="button" id="rejectBtn">Reject</button>
+    </form>
+
+    <script>
+        document.getElementById('acceptBtn').addEventListener('click', function () {
+            var username = document.getElementById('username').value;
+            alert('Accepted: ' + username);
+            // You can perform further actions here like sending the data to the server
+        });
+
+        document.getElementById('rejectBtn').addEventListener('click', function () {
+            var username = document.getElementById('username').value;
+            alert('Rejected: ' + username);
+            // You can perform further actions here based on rejection
+        });
+    </script>
+</body>
+
+</html>
